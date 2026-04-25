@@ -1,0 +1,6 @@
+chunks/
+data/
+*.tar
+*.tar.gz
+__pycache__/
+*.pyc
