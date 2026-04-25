@@ -2,6 +2,9 @@ name: Fetch Dukascopy chunk
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   fetch:
     name: chunk-${{ matrix.chunk }}
@@ -38,5 +41,5 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           TAG="data-v1"
-          gh release view "$TAG" || gh release create "$TAG" --title "Dukascopy data" --notes "Auto" --target "$GITHUB_SHA"
+          gh release create "$TAG" --title "Dukascopy data" --notes "Auto" --target "$GITHUB_SHA" 2>/dev/null || true
           gh release upload "$TAG" "chunk-${{ matrix.chunk }}.tar" --clobber
