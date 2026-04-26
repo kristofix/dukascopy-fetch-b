@@ -25,7 +25,7 @@ SYMBOLS = {
 CRYPTO = {"ADAUSD","BTCUSD","ETHUSD","BNBUSD"}
 START = date(2020, 4, 25)
 END = date(2026, 4, 25)
-N_CHUNKS = 100
+N_CHUNKS = 200
 
 def gen_all_tasks():
     tasks = []
